@@ -23,7 +23,6 @@ const firebaseConfig = {
   storageBucket: "meu-primeiro-fbi.appspot.com",
   messagingSenderId: "791891243472",
   appId: "1:791891243472:web:1662bb850339c6dd5509d5"
-
 };
 
 // Initialize Firebase
