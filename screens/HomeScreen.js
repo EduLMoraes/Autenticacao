@@ -1,11 +1,20 @@
+import 'react-native-gesture-handler'
+import { createDrawerNavigator } from '@react-navigation/drawer'
+import { NavigationContainer } from '@react-navigation/native';
 import { useNavigation } from '@react-navigation/core'
 import React from 'react'
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import { auth,firestore } from '../firebase'
-
+import Escrever from './Escrever'
+import Listar from './Listar'
+import ListarComFiltro from './ListarComFiltro'
+import ListaComFiltroGatos from './ListarComFiltroGatos';
+import LoginScreen from './LoginScreen';
 
 const HomeScreen = () => {
   const navigation = useNavigation()
+
+  const drawer = createDrawerNavigator()
 
   const handleSignOut = () => {
     auth
