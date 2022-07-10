@@ -4,11 +4,11 @@ import { NavigationContainer } from '@react-navigation/native';
 import { useNavigation } from '@react-navigation/core'
 import React from 'react'
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+
 import { auth,firestore } from '../firebase'
 import Escrever from './Escrever'
 import Listar from './Listar'
 import ListarComFiltro from './ListarComFiltro'
-import ListaComFiltroGatos from './ListarComFiltroGatos';
 import LoginScreen from './LoginScreen';
 
 const HomeScreen = () => {
@@ -16,30 +16,40 @@ const HomeScreen = () => {
 
   const drawer = createDrawerNavigator()
 
-  const handleSignOut = () => {
-    auth
-      .signOut()
-      .then(() => {
-        navigation.replace("Login")
-      })
-      .catch(error => alert(error.message))
+  function Login({navigation}){
+    return(
+      <LoginScreen></LoginScreen>
+    );
   }
-
- 
+  
+  function EscreverScreen({ navigation }) {
+    return (
+      <Escrever></Escrever>
+    );
+  }
+  
+  
+  function ListarScreen({ navigation }) {
+    return (
+      <Listar></Listar>
+    );
+  }
+  
+  
+  function ListaComFiltroScreen({ navigation }) {
+    return (
+      <ListarComFiltro></ListarComFiltro>
+    );
+  }
   
 
   return (
-    <View style={styles.container}>
-      <Text>Email: {auth.currentUser?.email}</Text>
-      <TouchableOpacity
-        onPress={handleSignOut}
-        style={styles.button}
-      >
-        <Text style={styles.buttonText}>Sair</Text>
-      </TouchableOpacity>
-
-
-    </View>
+  <Drawer.Navigator initialRouteName="Home">
+    <Drawer.Screen name="Home" component={Login} />
+    <Drawer.Screen name="Escrever" component={EscreverScreen} />
+    <Drawer.Screen name="Listar" component={ListarScreen} />
+    <Drawer.Screen name="Lista Com Filtro" component={ListaComFiltroScreen} />
+  </Drawer.Navigator>
   )
 }
 

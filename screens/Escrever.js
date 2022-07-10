@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import {  View,  Text,  TextInput,  TouchableOpacity,  KeyboardAvoidingView
-} from 'react-native';
+import {  View,  Text,  TextInput,  TouchableOpacity,  KeyboardAvoidingView} from 'react-native';
 import MeuEstilo from '../meuestilo'
 import { auth,firestore } from '../firebase'
 
@@ -82,4 +81,3 @@ const Escrever = () => {
   );
 };
 export default Escrever
-

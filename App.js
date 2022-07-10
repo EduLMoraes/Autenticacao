@@ -11,29 +11,9 @@ function Login({navigation}){
   );
 }
 
-function EscreverScreen({ navigation }) {
-  return (
-    <Escrever></Escrever>
-  );
-}
-
-
-function ListarScreen({ navigation }) {
-  return (
-    <Listar></Listar>
-  );
-}
-
-
-function ListaComFiltroScreen({ navigation }) {
-  return (
-    <ListarComFiltro></ListarComFiltro>
-  );
-}
-
-function ListaComFiltroGatosScreen({ navigation }) {
-  return (
-    <ListarComFiltroGatos></ListarComFiltroGatos>
+function Home({navigation}){
+  return(
+    <HomeScreen></HomeScreen>
   );
 }
 
@@ -41,13 +21,12 @@ const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
-      <Drawer.Navigator initialRouteName="Home">
-        <Drawer.Screen name="Home" component={HomeScreen} />
-        <Drawer.Screen name="Escrever" component={EscreverScreen} />
-        <Drawer.Screen name="Listar" component={ListarScreen} />
-        <Drawer.Screen name="Lista Com Filtro Gatos" component={ListaComFiltroGatosScreen} />
-        <Drawer.Screen name="Lista Com Filtro" component={ListaComFiltroScreen} />
-      </Drawer.Navigator>
+      <NavigationContainer>
+        <Stack.Navigation>
+          <Stack.Screen options={{ headerShown: false}} name="Login" component={LoginScreen}></Stack.Screen>
+          <Stack.Screen options={{ headerShown: false}} name="Home" component={HomeScreen}></Stack.Screen>
+        </Stack.Navigation>
+      </NavigationContainer>
   );
 }
 
